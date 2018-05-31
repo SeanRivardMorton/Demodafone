@@ -3,7 +3,7 @@
         <div class="layout">
             <div class="flex-box">
                 <p>Colour
-                    <strong>Space Grey</strong>
+                    <strong>{{ phoneOptions.colourName }}</strong>
                 </p>
             </div>
             <div class="flex-box">
@@ -16,11 +16,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class ProductOptionsPicker extends Vue {}
+export default class ProductOptionsPicker extends Vue {
+    @Prop() phoneOptions!: string;
+}
 </script>
 
 <style lang='scss' scoped>
+.layout {
+    text-align: left;
+    .flex-box {
+        width: 100%;
+    }
+}
 </style>

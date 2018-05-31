@@ -4,7 +4,7 @@
       <img src="../assets/phones/Apple_iPhone_8_Gold-full-product-front.png" alt="">
     </div>
     <div class="flex-box">
-      <product-picker></product-picker>
+      <product-browser></product-browser>
     </div>
   </div>
 </template>
@@ -12,12 +12,11 @@
 <script lang="ts">
 /* eslint-disable import/no-unresolved */
 import { Component, Vue } from 'vue-property-decorator';
-import ProductPicker from '@/components/ProductPicker.vue';
-
+import ProductBrowser from '@/components/ProductBrowser.vue';
 
 @Component({
   components: {
-  ProductPicker
+  ProductBrowser
   },
   })
 export default class BuyPhone extends Vue {}

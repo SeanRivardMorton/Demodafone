@@ -1,5 +1,5 @@
 <template>
-  <div class="productPicker">
+  <div class="productBrowser">
     <product-description :phoneData="phoneData"></product-description>
     <product-options-picker :phoneOptions="phoneOptions"></product-options-picker>
     <product-price-summary></product-price-summary>
@@ -9,9 +9,9 @@
 <script lang="ts">
 /* eslint-disable import/no-unresolved */
 import { Component, Vue } from 'vue-property-decorator';
-import ProductDescription from '@/components/ProductPicker/ProductDescription.vue';
-import ProductOptionsPicker from '@/components/ProductPicker/ProductOptionsPicker.vue';
-import ProductPriceSummary from '@/components/ProductPicker/ProductPriceSummary.vue';
+import ProductDescription from '@/components/ProductBrowser/ProductDescription.vue';
+import ProductOptionsPicker from '@/components/ProductBrowser/ProductOptionsPicker.vue';
+import ProductPriceSummary from '@/components/ProductBrowser/ProductPriceSummary.vue';
 
 const PHONE_DATA = require('../assets/data/phones.json');
 
@@ -22,7 +22,7 @@ const PHONE_DATA = require('../assets/data/phones.json');
   ProductPriceSummary
   },
   })
-export default class ProductPicker extends Vue {
+export default class ProductBrowser extends Vue {
     phoneData = PHONE_DATA[0]
 
     model = 0
@@ -36,7 +36,7 @@ export default class ProductPicker extends Vue {
 </script>
 
 <style lang='scss' scoped>
-.productPicker {
+.productBrowser {
   text-align: left;
 }
 </style>
