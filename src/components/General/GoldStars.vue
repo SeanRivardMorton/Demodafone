@@ -1,17 +1,17 @@
 <template>
     <div class="GoldStars">
-        <div class="stars" v-for="star in stars" :key="star.id">
+        <div class="stars" v-for="n in rating" :key="n.id">
             ⭐
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class GoldStars extends Vue {
-    stars = 2;
+    @Prop() private rating!: number
 }
 </script>
 
