@@ -14,7 +14,6 @@ import GoldStars from '@/components/General/GoldStars.vue';
 @Component({
   components: {
   GoldStars,
-
   }
   })
 export default class ProductDescription extends Vue {

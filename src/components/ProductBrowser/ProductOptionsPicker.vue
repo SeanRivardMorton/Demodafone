@@ -2,25 +2,30 @@
     <div class="PhoneOptionsPicker">
         <div class="layout">
             <div class="flex-box">
-                <p>Colour
-                    <strong>{{ phoneOptions.colourName }}</strong>
-                </p>
+                <color-picker :colorOptions="productOptions.colorOptions"></color-picker>
             </div>
             <div class="flex-box">
-                <p>Capacity
-                    <strong>64GB</strong>
-                </p>
+                <memory-picker :memoryOptions="productOptions.memoryOptions"></memory-picker>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
+/* eslint-disable import/no-unresolved */
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import ColorPicker from '@/components/General/ColorPicker.vue';
+import MemoryPicker from '@/components/General/MemoryPicker.vue';
 
-@Component
+@Component({
+  components: {
+  ColorPicker,
+  MemoryPicker
+  },
+  })
 export default class ProductOptionsPicker extends Vue {
-    @Prop() phoneOptions!: string;
+    // colorOptions = ''
+    @Prop() productOptions!: object;
 }
 </script>
 
