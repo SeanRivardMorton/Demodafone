@@ -1,7 +1,7 @@
 <template>
   <div class="productBrowser">
     <product-description :phoneData="phoneData"></product-description>
-    <product-options-picker :phoneOptions="phoneOptions"></product-options-picker>
+    <product-options-picker :productOptions="productOptions"></product-options-picker>
     <product-price-summary></product-price-summary>
   </div>
 </template>
@@ -31,6 +31,28 @@ export default class ProductBrowser extends Vue {
       colourName: this.currentModel.colourName,
       colourHex: this.currentModel.colourHex,
       memory: this.currentModel.memory,
+    }
+
+    get colorOptions() {
+      const { deviceSummary } = this.phoneData;
+      const colorOptions = {};
+      deviceSummary.forEach((device) => {
+        colorOptions[device.colourName] = device.colourHex;
+      });
+      return colorOptions;
+    }
+
+    get memoryOptions() {
+      const { deviceSummary } = this.phoneData;
+      const memoryOptions = {};
+      deviceSummary.forEach((device) => {
+        memoryOptions[device.memory] = null;
+      });
+      return memoryOptions;
+    }
+
+    get productOptions() {
+      return { colorOptions: this.colorOptions, memoryOptions: this.memoryOptions };
     }
 }
 </script>
