@@ -19,4 +19,5 @@ export default class GoldStars extends Vue {
 .stars {
   display: inline;
 }
+
 </style>
