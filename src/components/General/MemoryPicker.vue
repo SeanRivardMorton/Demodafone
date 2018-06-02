@@ -1,12 +1,12 @@
 <template>
     <div class="memoryPicker">
         <p>Capacity:
-            <strong>64GB</strong>
+            <strong>{{ selectedMemory }}</strong>
         </p>
         <div v-for="memory in availableMemory" :key="memory.id" class="inline">
             <div class="picker">
-                <div class="memory">
-                    {{ memory.memory }}
+                <div class="memory" @click="setMemory(memory.name)">
+                    {{ memory.memoryValue }}
                 </div>
             </div>
         </div>
@@ -16,16 +16,19 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Getter, Action } from 'vuex-class';
 
 @Component
 export default class MemoryPicker extends Vue {
     @Prop() private memoryOptions!: object
+    @Getter('phoneMemory') selectedMemory
+    @Action('setMemory') setMemory
 
     get availableMemory() {
       const availableMemory = [];
       Object.keys(this.memoryOptions).forEach((key) => {
         const newKey = key.replace(/[^0-9]+/g, '');
-        availableMemory.push({ memory: newKey });
+        availableMemory.push({ name: key, memoryValue: newKey });
         return availableMemory;
       });
       return availableMemory;
