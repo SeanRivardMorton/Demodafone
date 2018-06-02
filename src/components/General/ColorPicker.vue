@@ -1,13 +1,13 @@
 <template>
     <div class="colorPicker">
         <p>Colour:
-            <strong>Space Gray</strong>
+            <strong>{{ selectedColor }}</strong>
         </p>
         <div v-for="color in availableColors" :key="color.id" class="inline">
             <!-- <div class="outer-select"> -->
             <div class="selected">
                 <div class="gradient">
-                    <div class="select" :style="color.style">
+                    <div class="select" :style="color.style" @click="setColor(color.color)">
 
                     </div>
                 </div>
@@ -19,11 +19,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Getter, Action } from 'vuex-class';
 /* eslint-disable */
 
 @Component
 export default class ColorPicker extends Vue {
     @Prop() private colorOptions!: object
+    @Getter('phoneColor') selectedColor
+    @Action('setColor') setColor
     style = {
         'background-color': 'red'
     }
