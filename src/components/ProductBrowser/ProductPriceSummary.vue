@@ -1,24 +1,33 @@
 <template>
-    <div class="PricePlan">
-        <div class="layout container">
-            <div class="flex-box content-block">
-                <p>from
-                    <strong>1149</strong> upfront cost</p>
-            </div>
-            <!-- <span class="divider"></span> -->
-            <div class="flex-box content-block">
-                <p>When you pay
-                    <strong>$43.20</strong> a month</p>
-            </div>
-        </div>
+  <div class="PricePlan">
+    <div class="layout container">
+      <div class="flex-box content-block">
+        <p>from
+          <strong>£1{{ upfrontCost }}</strong> upfront cost</p>
+      </div>
+      <!-- <span class="divider"></span> -->
+      <div class="flex-box content-block">
+        <p>When you pay
+          <strong>£{{ monthlyRate }}</strong> a month</p>
+      </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class ProductPriceSummary extends Vue {}
+export default class ProductPriceSummary extends Vue {
+  @Prop() priceInfo!: object;
+  get upfrontCost() {
+    return this.priceInfo.hardwarePrice.oneOffPrice.gross;
+  }
+
+  get monthlyRate() {
+    return this.priceInfo.bundlePrice.monthlyPrice.gross;
+  }
+}
 </script>
 
 <style lang='scss' scoped>
