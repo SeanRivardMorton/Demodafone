@@ -1,6 +1,7 @@
 <template>
     <div class="GoldStars">
         <div class="stars" v-for="n in rating" :key="n.id">
+            <!-- I would use the Vodafone star sprites if available to me -->
             ⭐
         </div>
     </div>
@@ -19,5 +20,4 @@ export default class GoldStars extends Vue {
 .stars {
   display: inline;
 }
-
 </style>
