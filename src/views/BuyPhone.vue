@@ -1,11 +1,6 @@
 <template>
   <div class="ProductView layout">
-    <div class="flex-box product_display">
-      <img src="../assets/phones/Apple_iPhone_8_Gold-full-product-front.png" alt="">
-    </div>
-    <div class="flex-box">
-      <product-browser></product-browser>
-    </div>
+    <product-browser></product-browser>
   </div>
 </template>
 
