@@ -15,7 +15,7 @@
         "merchandisingMedia": [
           {
             "id": "PR_IMAGE_URLS_THUMBS_FRONT",
-            "value": "./assets/data/phones/apple_iPhone_8_full-product_front.png"
+            "value": "../Apple_iPhone_8_Gold-full-product-front.png"
           }
         ],
         "priceInfo": {
@@ -59,7 +59,7 @@
         "merchandisingMedia": [
           {
             "id": "PR_IMAGE_URLS_THUMBS_FRONT",
-            "value": "./assets/data/phones/Apple_iPhone_8_Silver_WS2-full-product-front.png"
+            "value": "../Apple_iPhone_8_Silver_WS2-full-product-front.png"
           }
         ],
         "priceInfo": {
@@ -103,7 +103,7 @@
         "merchandisingMedia": [
           {
             "id": "PR_IMAGE_URLS_THUMBS_FRONT",
-            "value": "./assets/data/phones/Apple_iPhone_8_Space_Grey_WS2-full-product-front.png"
+            "value": "../Apple_iPhone_8_Space_Grey_WS2-full-product-front.png"
           }
         ],
         "priceInfo": {
@@ -147,7 +147,7 @@
         "merchandisingMedia": [
           {
             "id": "PR_IMAGE_URLS_THUMBS_FRONT",
-            "value": "./assets/data/phones/Apple_iPhone_8_Gold-full-product-front.png"
+            "value": "../Apple_iPhone_8_Gold-full-product-front.png"
           }
         ],
         "priceInfo": {
@@ -191,7 +191,7 @@
         "merchandisingMedia": [
           {
             "id": "PR_IMAGE_URLS_THUMBS_FRONT",
-            "value": "./assets/data/phones/Apple_iPhone_8_Silver_WS2-full-product-front.png"
+            "value": "../Apple_iPhone_8_Silver_WS2-full-product-front.png"
           }
         ],
         "priceInfo": {
@@ -235,7 +235,7 @@
         "merchandisingMedia": [
           {
             "id": "PR_IMAGE_URLS_THUMBS_FRONT",
-            "value": "./assets/data/phones/Apple_iPhone_8_Space_Grey_WS2-full-product-front.png"
+            "value": "../Apple_iPhone_8_Space_Grey_WS2-full-product-front.png"
           }
         ],
         "priceInfo": {
