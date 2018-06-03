@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable import/no-unresolved */
+
 import { Component, Vue } from 'vue-property-decorator';
 import ProductBrowser from '@/components/ProductBrowser.vue';
 
