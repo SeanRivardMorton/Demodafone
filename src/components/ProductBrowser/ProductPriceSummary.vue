@@ -17,9 +17,26 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+interface hardWarePrice {
+  hardwareId: string,
+  oneOffDiscountPrice: any,
+  oneOffPrice: any
+}
+
+interface  bundlePrice {
+  bundleId: string,
+  monthlyDiscountPrice: any,
+  monthlyPrice: {
+    gross: string,
+    net: string,
+    vat: string
+  }
+}
+
 @Component
 export default class ProductPriceSummary extends Vue {
-  @Prop() priceInfo!: object;
+  @Prop() priceInfo!: any;
+
   get upfrontCost() {
     return this.priceInfo.hardwarePrice.oneOffPrice.gross;
   }

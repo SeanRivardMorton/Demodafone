@@ -3,10 +3,10 @@
         <p>Capacity:
             <strong>{{ selectedMemory }}</strong>
         </p>
-        <div v-for="memory in availableMemory" :key="memory.id" class="inline">
+        <div v-for="memory in memoryOptions" :key="memory.id" class="inline">
             <div class="picker">
-                <div class="memory" @click="setMemory(memory.name)">
-                    {{ memory.memoryValue }}
+                <div class="memory" @click="setMemory(memory)">
+                    {{ removeCharacters(memory) }}
                 </div>
             </div>
         </div>
@@ -20,19 +20,14 @@ import { Getter, Action } from 'vuex-class';
 
 @Component
 export default class MemoryPicker extends Vue {
-    @Prop() private memoryOptions!: object
-    @Getter('phoneMemory') selectedMemory
-    @Action('setMemory') setMemory
+    @Prop() private memoryOptions!: object;
+    @Getter('phoneMemory') selectedMemory!: string;
+    @Action('setMemory') setMemory!: null;
 
-    get availableMemory() {
-      const availableMemory = [];
-      Object.keys(this.memoryOptions).forEach((key) => {
-        const newKey = key.replace(/[^0-9]+/g, '');
-        availableMemory.push({ name: key, memoryValue: newKey });
-        return availableMemory;
-      });
-      return availableMemory;
+    removeCharacters(string: string) {
+        return string.replace(/[^0-9]+/g, '');
     }
+
 }
 </script>
 

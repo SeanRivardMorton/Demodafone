@@ -2,10 +2,10 @@
     <div class="PhoneOptionsPicker">
         <div class="layout">
             <div class="flex-box">
-                <color-picker :colorOptions="productOptions.colorOptions"></color-picker>
+                <color-picker :colorOptions="colorOptions"></color-picker>
             </div>
             <div class="flex-box">
-                <memory-picker :memoryOptions="productOptions.memoryOptions"></memory-picker>
+                <memory-picker :memoryOptions="memoryOptions"></memory-picker>
             </div>
         </div>
     </div>
@@ -24,8 +24,15 @@ import MemoryPicker from '@/components/General/MemoryPicker.vue';
   },
   })
 export default class ProductOptionsPicker extends Vue {
-    // colorOptions = ''
-    @Prop() productOptions!: object;
+    @Prop() productOptions!: { colorOptions: object, memoryOptions: object };
+
+    get colorOptions(): object {
+      return this.productOptions.colorOptions;
+    }
+
+    get memoryOptions(): object {
+      return this.productOptions.memoryOptions;
+    }
 }
 </script>
 

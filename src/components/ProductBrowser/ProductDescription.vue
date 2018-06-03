@@ -1,15 +1,20 @@
 <template>
   <div class="home">
-    <h1>{{ phoneData.groupName }}</h1>
+    <h1>{{ productDetails.productGroupName }}</h1>
     <gold-stars :rating="rating"></gold-stars>
-    <p>{{ displayDescription }}</p>
+    <p>{{ productDetails.productDescription }}</p>
   </div>
 </template>
 
 <script lang="ts">
-/* eslint-disable import/no-unresolved */
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import GoldStars from '@/components/General/GoldStars.vue';
+
+interface productDetails {
+  productRating: number,
+  productDescription: string,
+  productGroupName: string
+}
 
 @Component({
   components: {
@@ -17,14 +22,10 @@ import GoldStars from '@/components/General/GoldStars.vue';
   }
   })
 export default class ProductDescription extends Vue {
-  @Prop() phoneData!: any
+  @Prop() productDetails!: productDetails
 
   get rating() {
-    return Math.ceil(this.phoneData.rating);
-  }
-
-  get displayDescription() {
-    return this.phoneData.deviceSummary[0].displayDescription;
+    return Math.ceil(this.productDetails.productRating);
   }
 
 }
