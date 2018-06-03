@@ -1,0 +1,35 @@
+$optionPickerSize: 45px;
+$optionPickerInnerHeight: 38px;
+
+$borderRadius: 10px;
+$borderRadius__inner: $borderRadius - 3;
+
+.inline {
+  display: inline;
+}
+
+.border {
+  display: inline-block;
+  height: $optionPickerSize;
+  width: $optionPickerSize;
+  margin: 0.5rem;
+  border-radius: $borderRadius;
+  border: 1px solid transparent;
+}
+
+.selected {
+  border-radius: 10px;
+  border: 1.5px solid green;
+}
+
+.select {
+  position: relative;
+  width: $optionPickerInnerHeight;
+  height: $optionPickerInnerHeight;
+  top: 50%;
+  margin: -42% auto;
+  border-radius: $borderRadius__inner;
+  -webkit-box-shadow: 0px 0px 1px 0px black;
+  box-shadow: 0px 0px 1px 0px black;
+  z-index: 0;
+}
