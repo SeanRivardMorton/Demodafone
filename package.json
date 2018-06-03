@@ -9,6 +9,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "bulma": "^0.7.1",
     "npm": "^6.1.0",
     "vue": "^2.5.16",
     "vue-class-component": "^6.0.0",
