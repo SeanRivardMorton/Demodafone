@@ -1,5 +1,5 @@
-$optionPickerSize: 45px;
-$optionPickerInnerHeight: 38px;
+$optionPickerSize: 50px;
+$optionPickerInnerHeight: 40px;
 
 $borderRadius: 10px;
 $borderRadius__inner: $borderRadius - 3;
@@ -12,17 +12,17 @@ $borderRadius__inner: $borderRadius - 3;
   display: inline-block;
   height: $optionPickerSize;
   width: $optionPickerSize;
-  margin: 0.5rem;
+  margin: 3px;
   border-radius: $borderRadius;
   border: 1px solid transparent;
 }
 
-.selected {
+.optionPicker__button_active {
   border-radius: 10px;
   border: 1.5px solid green;
 }
 
-.select {
+.optionPicker__button {
   position: relative;
   width: $optionPickerInnerHeight;
   height: $optionPickerInnerHeight;
