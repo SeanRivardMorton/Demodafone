@@ -37,6 +37,17 @@ import { Getter } from 'vuex-class';
     hardwarePrice: string;
   }
 
+  interface colorOptions {
+    active: boolean,
+    color: string,
+    hex: string
+  }
+
+  interface capacityOptions {
+    value: string,
+    active: string
+  }
+
 import ProductDescription from '@/components/ProductBrowser/ProductDescription.vue';
 import ProductOptionsPicker from '@/components/ProductBrowser/ProductOptionsPicker.vue';
 import ProductPriceSummary from '@/components/ProductBrowser/ProductPriceSummary.vue';
@@ -54,6 +65,8 @@ export default class ProductBrowser extends Vue {
     @Getter('productMedia') productMedia!: string;
     @Getter('getOptions') getOptions!: Function;
     @Getter('productGroupName') productGroupName!: string;
+    @Getter('phoneColor') selectedColor!: string
+    @Getter('phoneMemory') selectedMemory!: string;
 
     version: number = 0;
 
@@ -72,16 +85,18 @@ export default class ProductBrowser extends Vue {
       };
     }
 
-    get capacityOptions(): Array<string> {
+    get capacityOptions(): Array<capacityOptions> {
       const prop: string = 'memory';
       return this.getOptions(prop)
-        .map((obj: any) => obj[prop]);
+        .map((obj: any) => {
+          return { value: obj[prop], active: obj[prop] === this.selectedMemory }
+        });
     }
 
-    get colorOptions(): object {
+    get colorOptions(): Array<colorOptions> {
       return this.getOptions('colourName')
         .map((obj: { colourName: string, colourHex: string}) => {
-        return { color: obj.colourName, hex: obj.colourHex };
+        return { color: obj.colourName, hex: obj.colourHex, active: obj.colourName === this.selectedColor}
       });
     }
 }
