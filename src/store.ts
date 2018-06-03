@@ -39,8 +39,10 @@ export default new Vuex.Store({
     productGroupName: state => state.phoneData.groupName,
     currentProduct: state =>
       state.phoneData.deviceSummary
-        .filter((item: any) => item.colourName === state.color)
-        .filter((item: any) => item.memory === state.memory),
+        .filter(
+          (item: { colourName: string }) => item.colourName === state.color
+        )
+        .filter((item: { memory: string }) => item.memory === state.memory),
     productMedia: (state, getters) =>
       getters.currentProduct[0].merchandisingMedia[0].value,
     phoneColor: state => state.color,
