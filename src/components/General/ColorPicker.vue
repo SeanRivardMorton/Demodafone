@@ -3,16 +3,13 @@
         <p>Colour:
             <strong>{{ selectedColor }}</strong>
         </p>
-        <div v-for="color in availableColors" :key="color.id" class="inline">
-            <!-- <div class="outer-select"> -->
+        <div v-for="color in colorOptions" :key="color.id" class="inline">
             <div class="selected">
                 <div class="gradient">
-                    <div class="select" :style="color.style" @click="setColor(color.color)">
-
+                    <div class="select" :style="{ backgroundColor: color.hex }" @click="setColor(color.color)">
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
         </div>
     </div>
 </template>
@@ -20,25 +17,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-/* eslint-disable */
 
 @Component
 export default class ColorPicker extends Vue {
     @Prop() private colorOptions!: object
-    @Getter('phoneColor') selectedColor
-    @Action('setColor') setColor
-    style = {
-        'background-color': 'red'
-    }
-
-    get availableColors() {
-      const availableColors = [];
-      Object.entries(this.colorOptions).forEach(([key, val]) => {
-        availableColors.push({ color: key, style: { 'background-color': val } });
-        return availableColors;
-      });
-      return availableColors;
-    }
+    @Getter('phoneColor') selectedColor!: string
+    @Action('setColor') setColor!: null
 }
 </script>
 
