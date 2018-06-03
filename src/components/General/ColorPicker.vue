@@ -1,26 +1,31 @@
 <template>
-    <div class="colorPicker">
-        <p>Colour:
-            <strong>{{ selectedColor }}</strong>
-        </p>
-        <div v-for="color in colorOptions" :key="color.id" class="inline">
-            <div class="selected">
-                <div class="gradient">
-                    <div class="select" :style="{ backgroundColor: color.hex }" @click="setColor(color.color)">
-                    </div>
-                </div>
-            </div>
+  <div class="colorPicker">
+    <p>Colour:
+      <strong>{{ selectedColor }}</strong>
+    </p>
+    <div v-for="color in colorOptions" :key="color.id" class="inline">
+      <div class="selected">
+        <div class="gradient">
+          <div class="select" :style="{ backgroundColor: color.hex }" @click="setColor(color.color)">
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
+interface colorOptions {
+  color: string,
+  hex: string
+}
+
 @Component
 export default class ColorPicker extends Vue {
-    @Prop() private colorOptions!: object
+    @Prop() private colorOptions!: Array<colorOptions>
     @Getter('phoneColor') selectedColor!: string
     @Action('setColor') setColor!: null
 }

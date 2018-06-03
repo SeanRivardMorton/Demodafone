@@ -6,7 +6,7 @@
     <div class="flex-box">
       <product-description :productDetails="productDetails"></product-description>
       <product-options-picker :productOptions="productOptions"></product-options-picker>
-      <product-price-summary :priceInfo="currentProduct[0].priceInfo"></product-price-summary>
+      <product-price-summary :priceInfo="currentProduct[version].priceInfo"></product-price-summary>
     </div>
   </div>
 </template>
@@ -20,7 +20,44 @@ import ProductDescription from '@/components/ProductBrowser/ProductDescription.v
 import ProductOptionsPicker from '@/components/ProductBrowser/ProductOptionsPicker.vue';
 import ProductPriceSummary from '@/components/ProductBrowser/ProductPriceSummary.vue';
 
-const PHONE_DATA = require('../assets/data/phones.json');
+interface product {
+  colourHex: string,
+  colourName: string,
+  deviceId: string,
+  displayDescription: string,
+  leadPlanId: string,
+  memory: string,
+  merchandisingMedia: Array<merchandisingMedia>,
+  memoryOptions: Array<memoryOptions>
+}
+
+interface merchandisingMedia {
+  id: string,
+  value: string
+}
+
+interface memoryOptions {
+  bundlePrice: string,
+  hardwarePrice: string
+}
+
+interface hardWarePrice {
+  hardwareId: string,
+  oneOffDiscountPrice: price,
+  oneOffPrice: price
+}
+
+interface bundlePrice {
+  bundleId: string,
+  monthlyDiscountPrice: price,
+  monthlyPrice: price
+}
+
+interface price {
+  gross: string,
+  net: string,
+  vat: string
+}
 
 @Component({
   components: {
@@ -30,19 +67,18 @@ const PHONE_DATA = require('../assets/data/phones.json');
   },
   })
 export default class ProductBrowser extends Vue {
-    phoneData = PHONE_DATA[0]
-
     @Getter('productRating') productRating!: string;
-    @Getter('currentProduct') currentProduct!: object;
-    // @Getter('productDescription') productDescription!: { groupName: string, displayDescription: string }
+    @Getter('currentProduct') currentProduct!: Array<product>;
     @Getter('productMedia') productMedia!: string;
     @Getter('getOptions') getOptions!: object;
     @Getter('productGroupName') productGroupName!: string;
 
+    version: number = 0;
+
     get productDetails() {
       return {
         productRating: this.productRating,
-        productDescription: this.currentProduct[0].displayDescription,
+        productDescription: this.currentProduct[this.version].displayDescription,
         productGroupName: this.productGroupName
       }
     }
