@@ -1,6 +1,4 @@
 <!--
-This is the main component card, which passes data down to its children
-
 COMPONENT HIERARCHY
 ProductBrowser
 \-> Product Description
@@ -9,29 +7,6 @@ ProductBrowser
   \-> Color Picker
   \=> Capacity Picker
 \-> Product Price Summary
-
-TEMPLATE?
-It's technically javascript, Vue also supports JSX, or in this case, TSX.
-
-TYPESCRIPT
-There's probably a better place to put my interfaces, but they're here for now.
-Using Typescript makes javascript easier to comprehend, making components
-more maintainable, and reusable.
-
-VUEX, A.K.A FLUX, LIKE REDUX, MOBX
-Some components needed properties that would require more massaging,
-I ended up using more Vuex than probably necessary, but I think
-it makes it a bit more cleaner to read? maybe?
-
-STYLE - BULMA
-I originally made my own css rules for flex-box grid,
-but decided that Vodafone is also probably using a css
-library with grid support, so I thought I my as well use
-one too.
-
-SCSS
-I am also using SCSS as a preprocessor.
-
 -->
 
 <template>
