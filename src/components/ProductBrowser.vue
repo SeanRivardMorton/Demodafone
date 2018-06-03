@@ -16,48 +16,30 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
 
+  interface product {
+    colourHex: string;
+    colourName: string;
+    deviceId: string;
+    displayDescription: string;
+    leadPlanId: string;
+    memory: string;
+    merchandisingMedia: Array<merchandisingMedia>;
+    memoryOptions: Array<memoryOptions>;
+  }
+
+  interface merchandisingMedia {
+    id: string;
+    value: string;
+  }
+
+  interface memoryOptions {
+    bundlePrice: string;
+    hardwarePrice: string;
+  }
+
 import ProductDescription from '@/components/ProductBrowser/ProductDescription.vue';
 import ProductOptionsPicker from '@/components/ProductBrowser/ProductOptionsPicker.vue';
 import ProductPriceSummary from '@/components/ProductBrowser/ProductPriceSummary.vue';
-
-interface product {
-  colourHex: string,
-  colourName: string,
-  deviceId: string,
-  displayDescription: string,
-  leadPlanId: string,
-  memory: string,
-  merchandisingMedia: Array<merchandisingMedia>,
-  memoryOptions: Array<memoryOptions>
-}
-
-interface merchandisingMedia {
-  id: string,
-  value: string
-}
-
-interface memoryOptions {
-  bundlePrice: string,
-  hardwarePrice: string
-}
-
-interface hardWarePrice {
-  hardwareId: string,
-  oneOffDiscountPrice: price,
-  oneOffPrice: price
-}
-
-interface bundlePrice {
-  bundleId: string,
-  monthlyDiscountPrice: price,
-  monthlyPrice: price
-}
-
-interface price {
-  gross: string,
-  net: string,
-  vat: string
-}
 
 @Component({
   components: {
@@ -70,7 +52,7 @@ export default class ProductBrowser extends Vue {
     @Getter('productRating') productRating!: string;
     @Getter('currentProduct') currentProduct!: Array<product>;
     @Getter('productMedia') productMedia!: string;
-    @Getter('getOptions') getOptions!: object;
+    @Getter('getOptions') getOptions!: Function;
     @Getter('productGroupName') productGroupName!: string;
 
     version: number = 0;
@@ -90,7 +72,7 @@ export default class ProductBrowser extends Vue {
       };
     }
 
-    get capacityOptions(): object {
+    get capacityOptions(): Array<string> {
       const prop: string = 'memory';
       return this.getOptions(prop)
         .map((obj: any) => obj[prop]);
