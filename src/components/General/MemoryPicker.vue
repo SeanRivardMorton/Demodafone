@@ -18,10 +18,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
-interface memoryOptions {
-
-}
-
 @Component
 export default class MemoryPicker extends Vue {
     @Prop() private memoryOptions!: Array<string>;
