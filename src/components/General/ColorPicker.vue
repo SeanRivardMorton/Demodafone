@@ -1,11 +1,11 @@
 <template>
-  <div class="colorPicker">
+  <div>
     <p>Colour:
       <strong>{{ selectedColor }}</strong>
     </p>
     <div v-for="color in colorOptions" :key="color.id" class="inline">
-      <div :class="{selected: color.active, border: true}">
-        <div class="select gradient" :style="{ backgroundColor: color.hex }" @click="setColor(color.color)">
+      <div :class="{optionPicker__button_active: color.active, border: true}">
+        <div class="optionPicker__button gradient" :style="{ backgroundColor: color.hex }" @click="setColor(color.color)">
         </div>
       </div>
     </div>

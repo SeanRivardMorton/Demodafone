@@ -1,9 +1,12 @@
 <template>
-  <div class="productBrowser layout">
-    <div class="flex-box product_display">
+  <div class="columns">
+    <!-- <div class="productBrowser layout"> -->
+    <div class="column is-offset-1">
+      <!-- <div class="flex-box product_display"> -->
       <img :src="productMedia" alt="">
     </div>
-    <div class="flex-box">
+    <!-- <div class="flex-box"> -->
+    <div class="column">
       <product-description :productDetails="productDetails"></product-description>
       <product-options-picker :productOptions="productOptions"></product-options-picker>
       <product-price-summary :priceInfo="currentProduct[version].priceInfo"></product-price-summary>
@@ -103,25 +106,28 @@ export default class ProductBrowser extends Vue {
 </script>
 
 <style lang='scss' scoped>
-.product_display {
-  width: 100%;
-  margin: auto;
-  img {
-    margin: 3rem auto;
-    display: block;
-  }
+img {
+  height: 25rem;
 }
+// .product_display {
+//   width: 100%;
+//   margin: auto;
+//   img {
+//     margin: 3rem auto;
+//     display: block;
+//   }
+// }
 
-.productBrowser {
-  text-align: left;
-}
+// .productBrowser {
+//   text-align: left;
+// }
 
-.layout {
-  display: flex;
-  flex-flow: row;
-  .flex-box {
-    height: 100%;
-    margin: auto;
-  }
-}
+// .layout {
+//   display: flex;
+//   flex-flow: row;
+//   .flex-box {
+//     height: 100%;
+//     margin: auto;
+//   }
+// }
 </style>

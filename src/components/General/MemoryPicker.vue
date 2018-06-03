@@ -1,11 +1,11 @@
 <template>
-    <div class="memoryPicker">
+    <div>
         <p>Capacity:
-            <strong>{{ selectedMemory.value}}</strong>
+            <strong>{{ selectedMemory}}</strong>
         </p>
         <div v-for="memory in memoryOptions" :key="memory.id" class="inline">
-            <div :class="{ selected: memory.active, border: true }">
-                <div class="memory select" @click="setMemory(memory.value)">
+            <div :class="{ optionPicker__button_active: memory.active, border: true }">
+                <div class="optionPicker__button" @click="setMemory(memory.value)">
                     {{ removeCharacters(memory.value) }}
                 </div>
             </div>
@@ -31,10 +31,14 @@ export default class MemoryPicker extends Vue {
 </script>
 
 <style lang='scss' scoped>
-.memory {
+.border {
+  position: relative;
+  top: -7px;
+}
+.optionPicker__button {
   text-align: center;
   vertical-align: middle;
-  line-height: 2.5rem;
+  line-height: 40px;
   background-color: #f3f4f3;
 }
 </style>

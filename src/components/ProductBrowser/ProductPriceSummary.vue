@@ -1,15 +1,12 @@
 <template>
-  <div class="PricePlan">
-    <div class="layout container">
-      <div class="flex-box content-block">
-        <p>from
-          <strong>£1{{ upfrontCost }}</strong> upfront cost</p>
-      </div>
-      <!-- <span class="divider"></span> -->
-      <div class="flex-box content-block">
-        <p>When you pay
-          <strong>£{{ monthlyRate }}</strong> a month</p>
-      </div>
+  <div class="columns has-text-left">
+    <div class="column is-6 productSummary__card">
+      <p>from
+        <strong>£1{{ upfrontCost }}</strong> upfront cost</p>
+    </div>
+    <div class="column is-6 productSummary__card">
+      <p>When you pay
+        <strong>£{{ monthlyRate }}</strong> a month</p>
     </div>
   </div>
 </template>
@@ -48,7 +45,8 @@ export default class ProductPriceSummary extends Vue {
 </script>
 
 <style lang='scss' scoped>
-.PricePlan {
+.columns {
+  margin-top: 5rem;
   background-color: #f4f4f4;
   p {
     color: black;
@@ -59,16 +57,14 @@ export default class ProductPriceSummary extends Vue {
   }
 }
 
-.flex-box {
-  width: 50%;
-  float: left;
-  padding: 20px;
+$verticalDivider: 15px;
+.productSummary__card {
+  padding: 30px;
   position: relative;
-
   &:first-child:after {
     content: '';
-    top: 10px;
-    bottom: 10px;
+    top: $verticalDivider;
+    bottom: $verticalDivider;
     left: 100%;
     width: 1px;
     background: #dddddd;

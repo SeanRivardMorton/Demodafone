@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home content has-text-left">
     <h1>{{ productDetails.productGroupName }}</h1>
     <gold-stars :rating="rating"></gold-stars>
     <p>{{ productDetails.productDescription }}</p>

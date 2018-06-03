@@ -1,6 +1,6 @@
 <template>
-  <div class="ProductView layout">
-    <product-browser></product-browser>
+  <div class="columns is-centered">
+    <product-browser class="column is-11"></product-browser>
   </div>
 </template>
 
@@ -17,19 +17,8 @@ import ProductBrowser from '@/components/ProductBrowser.vue';
 export default class BuyPhone extends Vue {}
 </script>
 
-<style lang="scss">
-.layout {
-  display: flex;
-  flex-flow: row;
-  .flex-box {
-    height: 100%;
-    margin: auto;
-  }
-}
-
-.product_display {
-  img {
-    height: 40vh;
-  }
+<style lang="scss" scoped>
+.columns {
+  padding-top: 2rem;
 }
 </style>

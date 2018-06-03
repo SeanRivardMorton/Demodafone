@@ -1,18 +1,17 @@
 <template>
     <div class="PhoneOptionsPicker">
-        <div class="layout">
-            <div class="flex-box">
+        <div class="columns has-text-left">
+            <div class="column">
                 <color-picker :colorOptions="colorOptions"></color-picker>
             </div>
-            <div class="flex-box">
-                <memory-picker :memoryOptions="memoryOptions"></memory-picker>
+            <div class="column">
+                <memory-picker :memoryOptions="capacityOptions"></memory-picker>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-/* eslint-disable import/no-unresolved */
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import ColorPicker from '@/components/General/ColorPicker.vue';
 import MemoryPicker from '@/components/General/MemoryPicker.vue';
@@ -30,17 +29,14 @@ export default class ProductOptionsPicker extends Vue {
       return this.productOptions.colorOptions;
     }
 
-    get memoryOptions(): object {
+    get capacityOptions(): object {
       return this.productOptions.memoryOptions;
     }
 }
 </script>
 
 <style lang='scss' scoped>
-.layout {
-    text-align: left;
-    .flex-box {
-        width: 100%;
-    }
+.columns {
+  margin-top: 2rem;
 }
 </style>
