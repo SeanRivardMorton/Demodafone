@@ -16,22 +16,22 @@ export default new Vuex.Store({
   state: {
     phoneData: PHONE_DATA[0],
     color: 'Silver',
-    memory: '64GB'
+    capacity: '64GB'
   },
   mutations: {
     setColor(state, color) {
       state.color = color;
     },
-    setMemory(state, memory) {
-      state.memory = memory;
+    setCapacity(state, capacity) {
+      state.capacity = capacity;
     }
   },
   actions: {
     async setColor({ commit }, color) {
       commit('setColor', color);
     },
-    async setMemory({ commit }, memory) {
-      commit('setMemory', memory);
+    async setCapacity({ commit }, capacity) {
+      commit('setCapacity', capacity);
     }
   },
   getters: {
@@ -42,11 +42,11 @@ export default new Vuex.Store({
         .filter(
           (item: { colourName: string }) => item.colourName === state.color
         )
-        .filter((item: { memory: string }) => item.memory === state.memory),
+        .filter((item: { memory: string }) => item.memory === state.capacity),
     productMedia: (state, getters) =>
       getters.currentProduct[0].merchandisingMedia[0].value,
     phoneColor: state => state.color,
-    phoneMemory: state => state.memory,
+    phoneCapacity: state => state.capacity,
     getOptions: state => (prop: string) => {
       const { deviceSummary } = state.phoneData;
       return removeDuplicates(deviceSummary, prop).map((obj: object) => obj);
