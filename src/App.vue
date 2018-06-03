@@ -1,3 +1,4 @@
+<!-- This is where the vue application gets injected into the index.html -->
 <template>
   <div id="app">
     <router-view/>
