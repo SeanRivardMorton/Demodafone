@@ -19,9 +19,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
 interface colorOptions {
-  color: string,
-  hex: string
-}
+    color: string;
+    hex: string;
+  }
 
 @Component
 export default class ColorPicker extends Vue {
