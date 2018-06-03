@@ -5,7 +5,7 @@
                 <color-picker :colorOptions="colorOptions"></color-picker>
             </div>
             <div class="column">
-                <memory-picker :memoryOptions="capacityOptions"></memory-picker>
+                <capacity-picker :capacityOptions="capacityOptions"></capacity-picker>
             </div>
         </div>
     </div>
@@ -14,23 +14,23 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import ColorPicker from '@/components/General/ColorPicker.vue';
-import MemoryPicker from '@/components/General/MemoryPicker.vue';
+import CapacityPicker from '@/components/General/CapacityPicker.vue';
 
 @Component({
   components: {
   ColorPicker,
-  MemoryPicker
+  CapacityPicker
   },
   })
 export default class ProductOptionsPicker extends Vue {
-    @Prop() productOptions!: { colorOptions: object, memoryOptions: object };
+    @Prop() productOptions!: { colorOptions: object, capacityOptions: object };
 
     get colorOptions(): object {
       return this.productOptions.colorOptions;
     }
 
     get capacityOptions(): object {
-      return this.productOptions.memoryOptions;
+      return this.productOptions.capacityOptions;
     }
 }
 </script>

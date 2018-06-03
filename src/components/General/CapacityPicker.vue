@@ -1,12 +1,12 @@
 <template>
     <div>
         <p>Capacity:
-            <strong>{{ selectedMemory}}</strong>
+            <strong>{{ selectedCapacity}}</strong>
         </p>
-        <div v-for="memory in memoryOptions" :key="memory.id" class="inline">
-            <div :class="{ optionPicker__button_active: memory.active, border: true }">
-                <div class="optionPicker__button" @click="setMemory(memory.value)">
-                    {{ removeCharacters(memory.value) }}
+        <div v-for="capacity in capacityOptions" :key="capacity.id" class="inline">
+            <div :class="{ optionPicker__button_active: capacity.active, border: true }">
+                <div class="optionPicker__button" @click="setCapacity(capacity.value)">
+                    {{ removeCharacters(capacity.value) }}
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
 @Component
-export default class MemoryPicker extends Vue {
-    @Prop() private memoryOptions!: Array<string>;
-    @Getter('phoneMemory') selectedMemory!: string;
-    @Action('setMemory') setMemory!: null;
+export default class CapacityPicker extends Vue {
+    @Prop() private capacityOptions!: Array<string>;
+    @Getter('phoneCapacity') selectedCapacity!: string;
+    @Action('setCapacity') setCapacity!: null;
 
     removeCharacters(string: string) {
         return string.replace(/[^0-9]+/g, '');

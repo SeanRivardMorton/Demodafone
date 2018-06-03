@@ -1,12 +1,9 @@
 <template>
   <div class="columns">
-    <!-- <div class="productBrowser layout"> -->
     <div class="column is-offset-1">
-      <!-- <div class="flex-box product_display"> -->
       <img :src="productMedia" alt="">
     </div>
-    <!-- <div class="flex-box"> -->
-    <div class="column">
+    <div class="column productDetails">
       <product-description :productDetails="productDetails"></product-description>
       <product-options-picker :productOptions="productOptions"></product-options-picker>
       <product-price-summary :priceInfo="currentProduct[version].priceInfo"></product-price-summary>
@@ -69,7 +66,7 @@ export default class ProductBrowser extends Vue {
     @Getter('getOptions') getOptions!: Function;
     @Getter('productGroupName') productGroupName!: string;
     @Getter('phoneColor') selectedColor!: string
-    @Getter('phoneMemory') selectedMemory!: string;
+    @Getter('phoneCapacity') selectedCapacity!: string;
 
     version: number = 0;
 
@@ -83,7 +80,7 @@ export default class ProductBrowser extends Vue {
 
     get productOptions() {
       return {
-        memoryOptions: this.capacityOptions,
+        capacityOptions: this.capacityOptions,
         colorOptions: this.colorOptions,
       };
     }
@@ -92,7 +89,7 @@ export default class ProductBrowser extends Vue {
       const prop: string = 'memory';
       return this.getOptions(prop)
         .map((obj: any) => {
-          return { value: obj[prop], active: obj[prop] === this.selectedMemory }
+          return { value: obj[prop], active: obj[prop] === this.selectedCapacity }
         });
     }
 
@@ -109,25 +106,9 @@ export default class ProductBrowser extends Vue {
 img {
   height: 25rem;
 }
-// .product_display {
-//   width: 100%;
-//   margin: auto;
-//   img {
-//     margin: 3rem auto;
-//     display: block;
-//   }
-// }
 
-// .productBrowser {
-//   text-align: left;
-// }
-
-// .layout {
-//   display: flex;
-//   flex-flow: row;
-//   .flex-box {
-//     height: 100%;
-//     margin: auto;
-//   }
-// }
+//Added padding for when viewing on mobile.
+.productDetails {
+  padding-left: 2rem;
+}
 </style>
