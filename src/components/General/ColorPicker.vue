@@ -4,11 +4,11 @@
       <strong>{{ selectedColor }}</strong>
     </p>
     <div v-for="color in colorOptions" :key="color.id" class="inline">
-      <div class="selected">
-        <div class="gradient">
-          <div class="select" :style="{ backgroundColor: color.hex }" @click="setColor(color.color)">
-          </div>
+      <div :class="{selected: color.active, border: true}">
+        <!-- <div class="gradient"> -->
+        <div class="select" :style="{ backgroundColor: color.hex }" @click="setColor(color.color)">
         </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -36,29 +36,34 @@ export default class ColorPicker extends Vue {
   display: inline;
 }
 
-.selected {
+.border {
   height: 45px;
   width: 45px;
   //   background-color: red;
   //   margin: 0.5rem;
   display: inline-block;
   border-radius: 10px;
-  border: 2px solid transparent;
-
-  &:hover {
-    border: 2px solid green;
-  }
+  border: 1px solid transparent;
 }
 
+.selected {
+  border-radius: 10px;
+  border: 1.5px solid green;
+}
+
+$height: 38px;
+
 .select {
-  margin: 1.9px;
-  display: inline-block;
-  height: 40px;
-  width: 40px;
+  margin: -42% auto;
+  /* display: inline-block; */
+  top: 50%;
+  position: relative;
+  width: $height;
+  height: $height;
   border-radius: 7px;
-  box-shadow: 0px 1px 1px 0px black;
-  position: absolute;
-  //   background-color: #f8e7dc;
+  -webkit-box-shadow: 0px 0px 1px 0px black;
+  box-shadow: 0px 0px 1px 0px black;
+  /* position: absolute; */
   z-index: 0;
   &:after {
     content: '';
@@ -74,28 +79,28 @@ export default class ColorPicker extends Vue {
   }
 }
 
-.gradient:after {
-  //   height: 100%;
-  //   width: 100%;
-  //   position: relative;
-  //   z-index: 10;
-  position: relative;
-  display: inline-block;
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 55%;
-    bottom: 0;
-    // background: -webkit-linear-gradient(transparent, #f8e7dc) left repeat;
-    background: linear-gradient(transparent, black) left repeat;
-    // background: linear-gradient(
-    //   to bottom,
-    //   rgba(0, 0, 0, 0) 0%,
-    //   rgba(0, 0, 0, 0) 59%,
-    //   rgba(0, 0, 0, 0.65) 100%
-    // );
-  }
-}
+// .gradient:after {
+//   //   height: 100%;
+//   //   width: 100%;
+//   //   position: relative;
+//   //   z-index: 10;
+//   position: relative;
+//   display: inline-block;
+//   &:after {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     width: 100%;
+//     height: 55%;
+//     bottom: 0;
+//     // background: -webkit-linear-gradient(transparent, #f8e7dc) left repeat;
+//     background: linear-gradient(transparent, black) left repeat;
+//     // background: linear-gradient(
+//     //   to bottom,
+//     //   rgba(0, 0, 0, 0) 0%,
+//     //   rgba(0, 0, 0, 0) 59%,
+//     //   rgba(0, 0, 0, 0.65) 100%
+//     // );
+//   }
+// }
 </style>

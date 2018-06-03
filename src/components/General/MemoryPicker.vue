@@ -1,12 +1,12 @@
 <template>
     <div class="memoryPicker">
         <p>Capacity:
-            <strong>{{ selectedMemory }}</strong>
+            <strong>{{ selectedMemory.value}}</strong>
         </p>
         <div v-for="memory in memoryOptions" :key="memory.id" class="inline">
-            <div class="picker">
-                <div class="memory" @click="setMemory(memory)">
-                    {{ removeCharacters(memory) }}
+            <div :class="{ selected: memory.active, border: true }">
+                <div class="memory select" @click="setMemory(memory.value)">
+                    {{ removeCharacters(memory.value) }}
                 </div>
             </div>
         </div>
@@ -42,16 +42,43 @@ export default class MemoryPicker extends Vue {
   line-height: 2.5rem;
 }
 
-.picker {
-  background-color: #f3f4f3;
-  box-shadow: 0px 0px 1px 0px black;
-  height: 2.5rem;
-  width: 2.5rem;
+.border {
   border-radius: 10px;
-  margin: 0.5rem;
   display: inline-block;
-  &:hover {
-    background-color: #f8e7dc;
+  //   box-shadow: 0px 0px 1px 0px black;
+  height: 45px;
+  width: 45px;
+  margin: 0.5rem;
+  background-color: #f3f4f3;
+}
+
+.selected {
+  border-radius: 10px;
+  border: 1.5px solid green;
+}
+
+$height: 38px;
+
+.select {
+  margin: -42% auto;
+  /* display: inline-block; */
+  top: 50%;
+  position: relative;
+  width: $height;
+  height: $height;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 0px 1px 0px black;
+  box-shadow: 0px 0px 1px 0px black;
+  /* position: absolute; */
+  z-index: 0;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    bottom: 0;
+    border-radius: 7px;
   }
 }
 </style>
