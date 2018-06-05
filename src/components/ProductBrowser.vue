@@ -26,6 +26,11 @@ ProductBrowser
 import { Component, Vue } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
 
+import ProductDescription from '@/components/ProductBrowser/ProductDescription.vue';
+import ProductOptionsPicker from '@/components/ProductBrowser/ProductOptionsPicker.vue';
+import ProductPriceSummary from '@/components/ProductBrowser/ProductPriceSummary.vue';
+
+
   interface product {
     colourHex: string;
     colourName: string;
@@ -57,10 +62,6 @@ import { Getter } from 'vuex-class';
     value: string,
     active: string
   }
-
-import ProductDescription from '@/components/ProductBrowser/ProductDescription.vue';
-import ProductOptionsPicker from '@/components/ProductBrowser/ProductOptionsPicker.vue';
-import ProductPriceSummary from '@/components/ProductBrowser/ProductPriceSummary.vue';
 
 @Component({
   components: {
